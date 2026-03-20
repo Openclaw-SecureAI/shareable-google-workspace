@@ -1,0 +1,18 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+.env
+.DS_Store
+
+# Local Google auth state
+*.token.json
+*-token.json
+calendar-config.json
+oauth-client.json
+
+# Local scratch
+/tmp/
+*.tmp

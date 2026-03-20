@@ -1,0 +1,10 @@
+{
+  "name": "consulting-clean",
+  "background_rgb": [255, 255, 255],
+  "primary_rgb": [13, 27, 62],
+  "accent_rgb": [91, 155, 213],
+  "neutral_rgb": [102, 102, 102],
+  "font_family": "Arial",
+  "title_pt": 24,
+  "body_pt": 14
+}
