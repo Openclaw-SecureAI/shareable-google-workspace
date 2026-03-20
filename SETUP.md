@@ -12,14 +12,14 @@ This guide is for a new user starting from zero.
 ## 2. Create a Google Cloud project
 
 1. Open Google Cloud Console.
-2. Create a new project or choose an existing one dedicated to this integration.
-3. Confirm billing/project policy on your side if your org requires it.
+2. Create a new project, or choose an existing one dedicated to this integration.
+3. Confirm billing or project policy requirements if your organization needs them.
 
 ## 3. Configure the OAuth consent screen
 
 1. Go to **APIs & Services → OAuth consent screen**.
-2. Choose **External** unless you are operating fully inside a Google Workspace org and want Internal.
-3. Fill app name, support email, and developer contact email.
+2. Choose **External** unless you are operating fully inside a Google Workspace organization and want **Internal**.
+3. Fill in the app name, support email, and developer contact email.
 4. Add yourself as a test user if the app is still in testing.
 5. Save.
 
@@ -27,7 +27,7 @@ This guide is for a new user starting from zero.
 
 1. Go to **APIs & Services → Credentials**.
 2. Click **Create Credentials → OAuth client ID**.
-3. Application type: **Desktop app**.
+3. Choose **Desktop app**.
 4. Download the JSON file.
 5. Store it here:
 
@@ -68,7 +68,7 @@ source .venv/bin/activate
 pip install -r google-workspace-integration/requirements.txt
 ```
 
-## 7. Run auth for one service
+## 7. Run authentication for one service
 
 Example for Calendar:
 
@@ -77,7 +77,7 @@ cd google-workspace-integration
 python3 calendar_cli.py auth
 ```
 
-The CLI prints a Google auth URL.
+The CLI prints a Google authorization URL.
 
 1. Open the URL in your browser.
 2. Approve the requested scopes.
@@ -135,15 +135,15 @@ python3 forms_cli.py list-forms --page-size 5
 
 ## 9. Install into OpenClaw
 
-You have two realistic options.
+You have two practical options.
 
-### Option A: keep this repo standalone and point a local skill at it
+### Option A: Keep this repo standalone and point a local skill at it
 
 - clone the repo where you want it
 - copy `skill/SKILL.md` and `skill/references/` into your OpenClaw skills area
-- edit any repo paths in the skill if needed
+- update any repo paths in the skill if needed
 
-### Option B: vendor the repo contents into your OpenClaw workspace
+### Option B: Vendor the repo contents into your OpenClaw workspace
 
 - copy `google-workspace-integration/` into your workspace
 - copy the skill into your workspace skills directory
@@ -152,17 +152,17 @@ You have two realistic options.
 ## 10. Troubleshooting
 
 ### Problem: auth worked but commands fail with 403
-Likely cause: API not enabled in Google Cloud.
+Likely cause: the API is not enabled in Google Cloud.
 
 ### Problem: `Missing code verifier` or `invalid_grant`
-Likely cause: redirect URL pasted into the wrong still-running auth process.
+Likely cause: the redirect URL was pasted into the wrong still-running auth process.
 
 ### Problem: `FileNotFoundError` for `oauth-client.json`
 Create `~/.config/gog/oauth-client.json` from your downloaded desktop OAuth client JSON.
 
-### Problem: token exists but commands still fail
+### Problem: a token exists but commands still fail
 Delete only the affected token file and rerun `auth` for that service.
 Do not delete everything blindly.
 
-### Problem: OpenClaw can’t find the scripts
+### Problem: OpenClaw cannot find the scripts
 Your skill paths are wrong for your installation. Make them repo-relative or absolute for your machine.
